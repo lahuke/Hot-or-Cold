@@ -17,8 +17,6 @@ function handleInstructionsModal() {
 //Generates a random number
 var randomNumber = Math.floor(Math.random() * 100) +1;
 
-//number entered into input
-
 
 //on click of '.new-js-new-game' class the game 
 //starts over
@@ -37,9 +35,13 @@ $(document).ready(function(){
 	handleInstructionsModal();
 	newGame();
 
-	$('#js-guess-submit').click(function() {
+	$('#js-guess-submit').click(function(event) {
+		event.preventDefault();
+		//number entered into input
 		var i = $('#js-user-guess').val();
+		//displays numbers already guessed
 		$('#guessList').append("<li>"+ i + "</li> <br>");
+		//resets input field
 		$('#guess')[0].reset();
 
 	})
