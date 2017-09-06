@@ -21,10 +21,12 @@ var randomNumber = Math.floor(Math.random() * 100) +1;
 //on click of '.new-js-new-game' class the game 
 //starts over
 function newGame(){
- $('.new-js-new-game').click(function() {
- 	console.log(randomNumber);
+ $('.new-js-new-game').click(function(event) {
+ 	console.log(randomNumber);	
+ 	$('#guessList').html("");
  });
 }
+
 
 // `$(document).ready` lets you specify a
 // function that should execute when all the
