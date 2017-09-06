@@ -21,7 +21,7 @@ var randomNumber = Math.floor(Math.random() * 100) +1;
 //on click of '.new-js-new-game' class the game 
 //starts over
 function newGame(){
- $('.new-js-new-game').click(function(event) {
+ $('.new-js-new-game').click(function() {
  	console.log(randomNumber);	
  	$('#guessList').html("");
  });
@@ -47,6 +47,7 @@ $(document).ready(function(){
 		$('#guess')[0].reset();
 
 	})
+
 });
 
 
