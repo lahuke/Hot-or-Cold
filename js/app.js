@@ -16,8 +16,6 @@ function handleInstructionsModal() {
 
 //Generates a random number
 var randomNumber = Math.floor((Math.random() * 100) +1);
-//var plusTwenty = randomNumber + 20;
-//var minusTwenty = 
 
 //on click of '.new-js-new-game' class the game 
 //starts over
