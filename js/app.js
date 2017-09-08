@@ -17,16 +17,23 @@ function handleInstructionsModal() {
 //Generates a random number
 var randomNumber = Math.floor((Math.random() * 100) +1);
 
+var clicks = 0;
+
 //on click of '.new-js-new-game' class the game 
 //starts over
+function pageLoad(){
+	console.log(randomNumber);
+	return(randomNumber);
+}
+
 function newGame(){
  $('.new-js-new-game').click(function() {
  	console.log(randomNumber);	
  	$('#guessList').html("");
  	$('#feedback').css('background-color','#cc324b').html('Make your Guess!');
+ 	location.reload();
  });
 }
-
 
 // `$(document).ready` lets you specify a
 // function that should execute when all the
@@ -36,6 +43,7 @@ function newGame(){
 $(document).ready(function(){
 	handleInstructionsModal();
 	newGame();
+	pageLoad();
 
 	$('#js-guess-submit').click(function(event) {
 		event.preventDefault();
@@ -54,14 +62,17 @@ $(document).ready(function(){
 		else if (i === ""){
 			alert('Please enter a number between 1 & 100.')
 		}
-		else if (i <= randomNumber + 10 && i >= randomNumber - 10){
-			$('#feedback').html('Very warm');
+		else if (i <= randomNumber + 5 && i >= randomNumber - 5){
+			$('#feedback').html('Very Warm');
 		}
-		else if (i <= randomNumber + 20 && i >= randomNumber - 20){
+		else if (i <= randomNumber + 10 && i >= randomNumber - 10){
 			$('#feedback').html('Warm');
 		}
-		else if (i <= randomNumber + 30 && i >= randomNumber - 30){
+		else if (i <= randomNumber + 20 && i >= randomNumber - 20){
 			$('#feedback').html('Cold');
+		}
+		else if (i <= randomNumber + 30 && i >= randomNumber - 30){
+			$('#feedback').html('Very Cold');
 		}
 		else {
 			$('#feedback').html('Freezing');	
@@ -72,7 +83,11 @@ $(document).ready(function(){
 		
 		//clears input text after entry
 		$('#guess')[0].reset();
-	
+
+		//tracks clicks
+		clicks +=1; 
+		$(".count").html(clicks);
+
 	})		
 
 });
